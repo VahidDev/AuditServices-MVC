@@ -1,0 +1,57 @@
+﻿@model FooterVM
+@{
+    Layout = null;
+}
+<footer class="primary-bg">
+    <div class="container">
+        <div class="row">
+            @foreach (FooterPartVM footerPart in Model?.FooterParts)
+            {
+                <div class="col-12 col-lg-2 desk-footer">
+                    <div class="link-wrapper">
+                        <p class="title fs-2-5 fw-600">@footerPart.Title</p>
+                        @foreach (FooterPartLinkVM footerPartLink in footerPart?.FooterPartLinks)
+                        {
+                            <a href="@footerPartLink.Link">@footerPartLink.Text</a>
+                        }
+                    </div>
+                </div>
+            }
+            @foreach (FooterPartVM footerPart in Model?.FooterParts)
+            {
+                <div class="col-12 mobile-footer my-5">
+                    <div class="accardion px-5">
+                        <div class="accardion-title d-flex justify-content-between align-items-center">
+                            <p>@footerPart.Title</p>
+                            <div class="accardion-icon-wrapper">
+                                <div class="top"></div>
+                                <div class="bot"></div>
+                            </div>
+                        </div>
+                        <div class="accardion-text d-flex flex-column">
+                            @foreach (FooterPartLinkVM footerPartLink in footerPart?.FooterPartLinks)
+                            {
+                                <a href="@footerPartLink.Link">@footerPartLink.Text</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-12 col-lg-6 social-icons d-flex justify-content-around">
+                <a href="@Model.YoutubeLink">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="@Model.LinkedInLink">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="@Model.TwitterLink">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="@Model.InstagramLink">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <div class="col-12 footer-text">@Model.Content</div>
+        </div>
+    </div>
+</footer>

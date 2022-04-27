@@ -1,0 +1,45 @@
+﻿@model AccountUpdateProfilePictureVM
+@{
+    ViewData["Title"] = "UpdateProfilePicture";
+}
+
+
+<div class="customUpdateForm editProfilePic mb-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <form class="form" asp-action="UpdateProfilePicture" 
+                      method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="CurrentImage" value="@Model?.CurrentImage" />
+                    <div class="form-group">
+                        <div class="text-center">
+                            <p class="h1">Cari şəkil</p>
+                            <div class="img-wrapper d-flex my-4 justify-content-center">
+                                <img src="~/assets/img/@Model.CurrentImage"
+                                     alt="Cari şəkil"
+                                     class="d-block w-100" />
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <label id="pp-label" for="profile-picture">
+                                Şəkli yenilə <i class="fa-solid fa-images"></i>
+                            </label>
+                            <span class="text-danger h2" asp-validation-for="NewImage"></span>
+                        </div>
+                        <input type="file" accept="image/*"
+                               title="Şəkil"
+                               id="profile-picture"
+                               class="form-control"
+                               asp-for="NewImage" />
+                    </div>
+                    <div class="form-btns d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary w-25">Yenilə</button>
+                        <button asp-controller="Account" asp-action="Index" 
+                                class="btn btn-danger w-25 ml-3">Ləğv et</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

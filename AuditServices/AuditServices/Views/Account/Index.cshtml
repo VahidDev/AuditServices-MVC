@@ -1,0 +1,123 @@
+﻿@model AccountIndexVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="profile">
+    <div class="container">
+        <div class="row justify-content-around align-items-center">
+            <div class="col-4">
+                <div><img src="~/assets/img/@Model?.Image" alt="" /></div>
+            </div>
+            <div class="col-6 btns">
+                <div>UserName: @Model?.UserName</div>
+                <div>Email: @Model?.Email</div>
+                <a class="btn btn-primary rounded" asp-controller="Account"
+                   asp-action="UpdateProfilePicture">Profil şəkli yenilə</a>
+                <a class="btn btn-warning rounded" asp-controller="Account"
+                   asp-action="ChangePassword">Şifrəni dəyiş</a>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="user-blogs">
+    <h2 class="text-center">Bloglar</h2>
+    <div class="swiper customSwiper">
+        @if (Model?.Blogs.Count == 0)
+        {
+            <div class="text-danger text-center"><span>Siz heç bir blog paylaşmamısınız</span></div>
+        }
+        else
+        {
+            <div class="swiper-wrapper">
+                @foreach (Blog blog in Model.Blogs)
+                {
+                    <div class="swiper-slide">
+                        <div class="blog">
+                            <div class="blog-btns">
+                                <a asp-action="Details" asp-controller="Blogs" asp-route-id="@blog.Id" class="btn btn-primary">Daha ətraflı</a>
+                                <a asp-action="Update" asp-controller="Blogs" asp-route-id="@blog.Id" class="btn btn-warning">Editlə</a>
+                                <a data-id="@blog.Id"class="btn btn-danger deleteBtn">Sil</a>
+                            </div>
+                            <div class="blog-image">
+                                <img src="~/assets/img/@blog.Image"
+                                     class="d-block"
+                                     alt="Blog şəkli" />
+                            </div>
+                            <div class="blog-content p-4">
+                                @blog.Description
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+<a id="modalBtn" 
+   data-bs-toggle="modal"
+   data-bs-target="#exampleModal"></a>
+<input type="hidden" id="tempInputForBlogId" />
+<!-- Modal start -->
+<div class="blog-modal">
+    <div class="modal fade"
+         id="exampleModal"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Təsdiqlə</h3>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">Bu bloqu silməyə əminsiniz?</div>
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Ləğv et
+                    </button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end -->
+@section Scripts{
+    <script>
+        "use strict"
+        const btns = document.getElementsByClassName("deleteBtn");
+        const modalBtn = document.getElementById("modalBtn");
+        const tempInputForBlogId = document.getElementById("tempInputForBlogId");
+        const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+        if (btns !== null || btns.length > 0) {
+            for (let btn of btns) {
+                $(btn).on("click", function (e) {
+                    modalBtn.click();
+                    tempInputForBlogId.value = e.target.dataset.id;
+                });
+            }
+        }
+        confirmDeleteBtn.addEventListener("click", function (e) {
+            DeleteBlog(tempInputForBlogId.value)
+        });
+
+        function DeleteBlog(id) {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://localhost:44316/Blogs/Delete?id=" + id)
+            xhr.send();
+            xhr.onload = function (r) {
+                if (xhr.status === 200) {
+                    window.location.replace("https://localhost:44316/Account");
+                }
+            }
+        }
+
+    </script>
+
+}

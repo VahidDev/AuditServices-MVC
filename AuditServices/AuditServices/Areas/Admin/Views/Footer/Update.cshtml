@@ -1,0 +1,90 @@
+﻿@model FooterUpdateVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+<!-- /.navbar -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2 justify-content-center">
+                <div class="col-sm-6">
+                    <h1></h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-action="Index">Ayaq hissə</a></li>
+                        <li class="breadcrumb-item active">Yenilə</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title text-center">Yeniləmək formu</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form method="post" asp-action="Update">
+                            <div class="card-body">
+                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                <div class="form-group">
+                                    <label asp-for="YoutubeLink">Youtube Link</label>
+                                    <input type="text" asp-for="YoutubeLink" class="form-control" value="@Model.YoutubeLink" placeholder="Youtube Link">
+                                    <span asp-validation-for="YoutubeLink" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="LinkedInLink">LinkedInLink</label>
+                                    <input type="text" asp-for="LinkedInLink" class="form-control" value="@Model.LinkedInLink" placeholder="LinkedIn Link">
+                                    <span asp-validation-for="LinkedInLink" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="TwitterLink">Twitter Link</label>
+                                    <input type="text" asp-for="TwitterLink" class="form-control" value="@Model.TwitterLink"
+                                           placeholder="Twitter Link">
+                                    <span asp-validation-for="TwitterLink" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="InstagramLink">Instagram Link</label>
+                                    <input type="text" asp-for="InstagramLink" class="form-control" value="@Model.InstagramLink"
+                                           placeholder="Instagram Link">
+                                    <span asp-validation-for="InstagramLink" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Content">Kontent</label>
+                                    <textarea type="text" cols="30" rows="10"
+                                              asp-for="Content" class="form-control" value="@Model.Content"
+                                              placeholder="Twitter Link"></textarea>
+                                    <span asp-validation-for="Content" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Yenilə</button>
+                                <a type="button" class="btn btn-danger" asp-action="Index">Ləğv et</a>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial">
+}
+
+

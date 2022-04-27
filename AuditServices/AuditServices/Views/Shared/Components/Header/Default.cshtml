@@ -1,0 +1,241 @@
+﻿@model HeaderVM
+@{
+    Layout = null;
+}
+
+<header>
+    <div class="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="mobile-menu">
+        <nav class="d-flex h-100 flex-column justify-content-center align-items-center">
+            <a asp-controller="Home" asp-action="Index" class="fs-3 primary hover-cc sub-primary">
+                Ana səyfə
+            </a>
+            <a asp-controller="About" asp-action="Index" class="fs-3 primary hover-cc sub-primary">
+                Haqqımızda
+            </a>
+            <a asp-controller="Contact" asp-action="Index" class="fs-3 primary hover-cc">Əlaqə </a>
+            <a asp-controller="AuditServices" asp-action="Index" class="fs-3 primary hover-cc"> Xidmətlər </a>
+            <a asp-controller="Blogs" asp-action="Index" class="fs-3 primary hover-cc"> Bloglar </a>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-1 col-2 mini-logo">
+                <a asp-controller="Home" asp-action="Index" class="d-block w-100">
+                    <div class="image-wrapper">
+                        <img class="d-block w-100"
+                             src="~/assets/img/logo-mini.webp"
+                             alt="logo of company" />
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 desk-nav justify-content-end">
+                <div class="icon-box d-flex justify-content-end align-items-center"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid px-0">
+        <div class="bot-header desk-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                        <nav class="d-flex justify-content-between">
+                            <a asp-controller="Home" asp-action="Index" class="primary hover-cc sub-primary">
+                                Ana səyfə
+                            </a>
+                            <a asp-controller="About" asp-action="Index"
+                               class="primary hover-cc sub-primary">
+                                Haqqımızda
+                            </a>
+                            <a asp-controller="Contact" asp-action="Index" class="primary hover-cc sub-primary">
+                                Əlaqə
+                            </a>
+                            <a asp-controller="AuditServices" asp-action="Index"
+                               class="primary hover-cc menu-act"
+                               data-show="services">
+                                Xidmətlər
+                            </a>
+                            <div class="menu services d-flex" data-toggle="services-menu">
+                                <div class="col-3 lightgray-bg menu-nav-left">
+                                    <div class="wrapper d-flex flex-column align-items-end px-5">
+                                        <a asp-controller="AuditServices" asp-action="Index"
+                                           class="primary hover-cc sub-act mt-3"
+                                           data-toggle="audit-menu">Audit Xidmətləri</a>
+                                        <a asp-controller="TaxServices"asp-action="Index"
+                                           class="primary hover-cc sub-act"
+                                           data-toggle="tax-menu">Vergi Xidmətləri</a>
+                                        <a asp-controller="AccountingServices"asp-action="Index"
+                                           class="primary hover-cc sub-act"
+                                           data-toggle="assurance-menu">Muhasibatlıq Xidmətləri</a>
+                                    </div>
+                                </div>
+                                <div class="col-9 audit-menu sub-menu gray-bg d-flex d-none">
+                                    <div class="col-7">
+                                        <div class="wrapper d-flex flex-column align-items-start px-5 ms-5">
+                                            <p class="title mt-1">Audit xidmətləri</p>
+                                            <a asp-controller="TaxsReportAudit"asp-action="Index"
+                                               class="primary hover-cc">Vergi hesabatlarının auditi</a>
+                                            <a asp-controller="FinancesReportAudit"asp-action="Index"
+                                               class="primary hover-cc">Maliyyə hesabatlarının auditi</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 p-5 ms-5">
+                                        <div class="main-card">
+                                            <div class="image-wrapper">
+                                                <img src="~/assets/img/client-behaviour-300x300.jpg"
+                                                     alt="Formula driver" />
+                                            </div>
+                                            <div class="text-wrapper p-4">
+                                                <div class="card-tag darkgray">
+                                                    BUSINESS RESILENCE
+                                                </div>
+                                                <a href="#">
+                                                    <p class="fs-2 primary my-4 fw-600">
+                                                        Returning your business
+                                                    </p>
+                                                </a>
+
+                                                <br />
+                                                <p class="card-info mt-2">
+                                                    Lorem ipsum dolor sit amet consectetur,
+                                                    adipisicing elit. Quis, temporibus?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-9 tax-menu sub-menu gray-bg d-flex d-none">
+                                    <div class="col-7">
+                                        <div class="wrapper d-flex flex-column align-items-start px-5 ms-5">
+                                            <p class="title mt-1">Vergi xidmətləri</p>
+                                            <a asp-controller="TaxAuditServices"asp-action="Index"
+                                               class="primary hover-cc">Vergi auditi xidmətləri</a>
+                                            <a asp-controller="TaxAdviceServices"asp-action="Index"
+                                               class="primary hover-cc">Vergi məsləhət xidmətləri</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 p-5 ms-5">
+                                        <div class="main-card">
+                                            <div class="image-wrapper">
+                                                <img src="~/assets/img/client-behaviour-300x300.jpg"
+                                                     alt="Formula driver" />
+                                            </div>
+                                            <div class="text-wrapper p-4">
+                                                <div class="card-tag darkgray">
+                                                    BUSINESS RESILENCE
+                                                </div>
+                                                <a href="#">
+                                                    <p class="fs-2 primary my-4 fw-600">
+                                                        Returning your business
+                                                    </p>
+                                                </a>
+
+                                                <br />
+                                                <p class="card-info mt-2">
+                                                    Lorem ipsum dolor sit amet consectetur,
+                                                    adipisicing elit. Quis, temporibus?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-9 assurance-menu sub-menu gray-bg d-flex">
+                                    <div class="col-7">
+                                        <div class="wrapper d-flex flex-column align-items-start px-5 ms-5">
+                                            <p class="title mt-1">Muhasibatlıq xidmətləri</p>
+                                            <a asp-controller="Outsource"asp-action="Index"
+                                               class="primary hover-cc">Maliyyə uçotunun üzrə autsors xidmətləri</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 p-5 ms-5">
+                                        <div class="main-card">
+                                            <div class="image-wrapper">
+                                                <img src="~/assets/img/client-behaviour-300x300.jpg"
+                                                     alt="Formula driver" />
+                                            </div>
+                                            <div class="text-wrapper p-4">
+                                                <div class="card-tag darkgray">
+                                                    BUSINESS RESILENCE
+                                                </div>
+                                                <a href="#">
+                                                    <p class="fs-2 primary my-4 fw-600">
+                                                        Returning your business
+                                                    </p>
+                                                </a>
+
+                                                <br />
+                                                <p class="card-info mt-2">
+                                                    Lorem ipsum dolor sit amet consectetur,
+                                                    adipisicing elit. Quis, temporibus?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-9 advisory-menu gray-bg d-flex d-none">
+                                    <div class="col-7">
+                                        <div class="wrapper d-flex flex-column align-items-start px-5 ms-5"></div>
+                                    </div>
+                                    <div class="col-5 p-5 ms-5"></div>
+                                </div>
+                            </div>
+
+                            <a asp-controller="Blogs"asp-action="Index"
+                               class="primary hover-cc menu-act"
+                               data-show="industries">
+                                Bloglar
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="dropdown my-dropdown mx-4">
+
+            <button class="btn btn-primary dropdown-toggle
+                    d-flex justify-content-around align-items-center" 
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="width:120%; padding:8px;"
+                    >
+                <div>
+                    <img src="~/assets/img/@Model?.Image" class=""
+                         style="border-radius:50%; width:30px; height:30px;" />
+                </div>
+                <span> @User.Identity.Name</span>
+            </button>
+
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"
+                style="width:120%;">
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Index">Profil</a></li>
+                @if (User.IsInRole(DefaultRoleConstants.Admin) || User.IsInRole(DefaultRoleConstants.Moderator))
+                {
+                <li><a class="dropdown-item" asp-controller="Home" asp-area="Admin"
+                       asp-action="Index">Admin Panel</a></li>
+                }
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Çıxış</a></li>
+            </ul>
+
+        </div>
+    }
+    else
+    {
+        <div class="loginBtn mx-4">
+            <a asp-controller="Account" asp-action="Login"
+               class="btn btn-primary p-3"
+               id="dropdownMenuButton1">
+                Giriş
+            </a>
+        </div>
+    }
+</header>

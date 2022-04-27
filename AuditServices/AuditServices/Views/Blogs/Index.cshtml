@@ -1,0 +1,76 @@
+﻿@model BlogIndexVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="blogs mb-4">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            @foreach (Blog blog in Model.Blogs)
+            {
+                <div class="swiper-slide">
+                    <div class="blog__profile">
+                        <div class="image-wrapper"><img src="~/assets/img/@blog.User.Image" alt=""></div>
+                        <div class="person-data">@blog.User.UserName</div>
+                    </div>
+                    <div class="blog__picture">
+                        <div class="image-wrapper">
+                            <img src="~/assets/img/@blog.Image" alt="">
+                        </div>
+                    </div>
+                    <div class="blog__text px-4">
+                        <p>@blog.Description</p>
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@blog.Id"
+                           >Daha ətraflı</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<div class="create-blog mb-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="form">
+                    <form enctype="multipart/form-data" asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-center text-danger"></div>
+                        <div class="form-group">
+                            <label id="pp-label" asp-for="BlogCreateVM.Image" for="profile-picture">
+                                Şəkil <i class="fa-solid fa-images"></i>
+                            </label>
+                            <input type="file" asp-for="BlogCreateVM.Image" title="Şəkil"
+                                   id="profile-picture" class="form-control"accept="image/*">
+                            <span class="text-danger h1" asp-validation-for="BlogCreateVM.Image"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea asp-for="BlogCreateVM.Description" cols="30" rows="10" class="form-control" placeholder="Fikirləriniz..."></textarea>
+                            <span class="text-danger h1" asp-validation-for="BlogCreateVM.Description"></span>
+                        </div>
+                        <div class="form-btns d-flex justify-content-center">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <button type="submit"
+                                        class="btn btn-primary d-block w-50">
+                                    Paylaş
+                                </button>
+                            }
+                            else
+                            {
+                                <a asp-controller="Account" asp-action="Login"
+                                   class="btn btn-primary d-block w-50">Giriş</a>
+
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{ 
+<partial name="_ValidationScriptsPartial" />
+
+}
+

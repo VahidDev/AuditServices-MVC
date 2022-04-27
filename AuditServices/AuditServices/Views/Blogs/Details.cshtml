@@ -1,0 +1,235 @@
+﻿@model BlogDetailsVM
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="blog d-flex justify-content-center">
+                    <div class="card mb-3" style="max-width: 540px">
+                        <div class="row g-0">
+                            @if (Model.Blog.User.UserName == User.Identity.Name)
+                            {
+                                <a asp-action="Update" asp-controller="Blogs" asp-route-id="@Model.Blog.Id"
+                                   class="btn btn-warning btn-lg" style="font-size:18px;">Editlə</a>
+                                <a data-id="@Model.Blog.Id"
+                                   class="btn btn-danger btn-lg my-2 deleteBtn" style="font-size:18px;">Sil</a>
+                            }
+                            <div class="col-12">
+                                <img src="~/assets/img/@Model.Blog.Image"
+                                     class="blogDetailsImage rounded-start"
+                                     alt="Blog şəkli" />
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-body">
+                                    <h5 class="card-title">by @Model.Blog.User.UserName</h5>
+                                    <p class="card-text text-justify">
+                                        @Model.Blog.Description
+                                    </p>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            Paylaşılan tarix: @Model.Blog.CreatedDate.ToString("dd/MM/yyyy")
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="comments w-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="be-comment-block">
+                        <h1 class="comments-title">
+                            Rəylər
+                            <span id="commentsCount">(@Model.Blog.CommentsCount)</span>
+                        </h1>
+                        @if (Model?.Blog?.Comments?.Count == 0)
+                        {
+                            <div class="text-center text-danger">
+                                <h2 id="EmptyCommentMessageEl">Bu blog üçün heç bir rəy verilməyib</h2>
+                            </div>
+                        }
+                        else
+                        {
+                            @foreach (Comment comment in Model.Blog.Comments)
+                            {
+                                <div class="be-comment">
+                                    <div class="be-img-comment">
+                                        <a href="blog-detail-2.html">
+                                            <img src="~/assets/img/@comment.User.Image"
+                                                 alt=""
+                                                 class="be-ava-comment" />
+                                        </a>
+                                    </div>
+                                    <div class="be-comment-content">
+                                        <span class="be-comment-name">
+                                            <a href="blog-detail-2.html">@comment.User.UserName</a>
+                                        </span>
+                                        <span class="be-comment-time">
+                                            <i class="fa fa-clock-o"></i>
+                                            @comment.CreatedDate.ToString("dd/MM/yyyy")
+                                        </span>
+
+                                        <p class="be-comment-text">
+                                            @comment.Text
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <form class="form-block">
+                            <input type="hidden" id="blogIdInput"
+                                   value="@Model.Blog.Id" />
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <textarea id="textEl" class="form-input"
+                                                  required=""
+                                                  placeholder="Rəyiviz..."></textarea>
+                                    </div>
+                                </div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a id="sendCommentBtn"
+                                       class="btn btn-lg btn-primary pull-right w-50 m-auto">
+                                        Göndər
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Account" asp-action="Login"
+                                       class="btn btn-lg btn-primary pull-right w-50 m-auto">
+                                        Giriş
+                                    </a>
+                                }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<a id="modalBtn"
+   data-bs-toggle="modal"
+   data-bs-target="#exampleModal"></a>
+<input type="hidden" id="tempInputForBlogId"/>
+<!-- Modal start -->
+<div class="blog-modal">
+    <div class="modal fade"
+         id="exampleModal"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Təsdiqlə</h3>
+                    <button type="button" 
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">Bu bloqu silməyə əminsiniz?</div>
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Ləğv et
+                    </button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end -->
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script asp-append-version="true" defer>
+        "use strict";
+        const blogIdInput = document.getElementById("blogIdInput");
+        const sendCommentBtn = document.getElementById("sendCommentBtn");
+        const textEl = document.getElementById("textEl");
+        sendCommentBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            SendCommentAsync(textEl, blogIdInput);
+        });
+        const btns = document.getElementsByClassName("deleteBtn");
+        const modalBtn = document.getElementById("modalBtn");
+        const tempInputForBlogId = document.getElementById("tempInputForBlogId");
+        const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+        if (btns !== null || btns.length > 0) {
+            for (let btn of btns) {
+                $(btn).on("click", function (e) {
+                    modalBtn.click();
+                    tempInputForBlogId.value = e.target.dataset.id;
+                });
+            }
+        }
+        confirmDeleteBtn.addEventListener("click", function (e) {
+            DeleteBlog(tempInputForBlogId.value)
+        });
+
+        function DeleteBlog(id) {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://localhost:44316/Blogs/Delete?id=" + id)
+            xhr.send();
+            xhr.onload = function (r) {
+                if (xhr.status === 200) {
+                    window.location.replace("https://localhost:44316/Blogs");
+                }
+            }
+        }
+        function SendCommentAsync(textEl, blogIdInput) {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://localhost:44316/Comment/Create?id="
+                + blogIdInput.value + "&text=" + textEl.value, true);
+            xhr.send();
+            xhr.onload = (r) => {
+                if (xhr.status === 200) {
+                    if (xhr.response === "true") {
+                        const EmptyCommentMessageEl = document.getElementById("EmptyCommentMessageEl");
+                        if (EmptyCommentMessageEl !== null) {
+                            EmptyCommentMessageEl.remove();
+                        }
+                        const newCommentEl = `<div class="be-comment">
+                                    <div class="be-img-comment">
+                                        <a href="blog-detail-2.html">
+                                            <img src="/assets/img/@Model.Image"
+                                                 alt=""
+                                                 class="be-ava-comment" />
+                                        </a>
+                                    </div>
+                                    <div class="be-comment-content">
+                                        <span class="be-comment-name">
+                                            <a href="blog-detail-2.html">@User.Identity.Name</a>
+                                        </span>
+                                        <span class="be-comment-time">
+                                            <i class="fa fa-clock-o"></i>
+                                            @DateTime.Now.ToString("dd/MM/yyyy")
+                                        </span>
+
+                                        <p class="be-comment-text">
+                                            ${textEl.value}
+                                        </p>
+                                    </div>
+                                </div>`;
+                        const formEl = document.forms[0];
+                        formEl.insertAdjacentHTML("beforebegin", newCommentEl);
+                        $("#commentsCount").text(@Model.Blog.CommentsCount+1);
+                        textEl.value = "";
+                    }
+                }
+            }
+        }
+    </script>
+}

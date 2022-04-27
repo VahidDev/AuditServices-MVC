@@ -1,0 +1,448 @@
+﻿@model UserDetailVM
+  <!-- Navbar -->
+@section Navbar{
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index3.html" class="nav-link">Ev</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Əlaqə</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Navbar Search -->
+            <li class="nav-item">
+                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                    <i class="fas fa-search"></i>
+                </a>
+                <div class="navbar-search-block">
+                    <form class="form-inline">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+            <!-- Messages Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-comments"></i>
+                    <span class="badge badge-danger navbar-badge">3</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="~/Admin/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Brad Diesel
+                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">Call me whenever you can...</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="~/Admin/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    John Pierce
+                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">I got your message bro</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="~/Admin/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Nora Silvester
+                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">The subject goes here</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                </div>
+            </li>
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 friend requests
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+}
+<!-- /.navbar -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Cədvəllər</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-controller="User" asp-action="Index">İstifadəçi</a></li>
+                        <li class="breadcrumb-item active">Məlumatlar</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">İstifadəçi məlumatları</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="userErrorInfoEl">
+                                        <td>@Model.User.Id</td>
+                                        <td>@Model.User.UserName</td>
+                                        <td>@Model.User.Email</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-route-id="@Model.User.Id" asp-action="Update">Yenilə</a>
+                                            <a class="btn btn-secondary" asp-route-id="@Model.User.Id"
+                                               asp-action="ChangePassword">Şifrəni dəyiş</a>
+                                            <!-- Button trigger delete modal -->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                Delete
+                                            </button>
+                                            @if (Model.User.IsBlocked)
+                                            {
+                                                <button type="button" class="btn btn-dark unBlockModalBtn">
+                                                    Aktivləşdir
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <!-- Button trigger block modal -->
+                                                <button type="button" class="btn btn-dark BlockModalBtn">
+                                                    Blokla
+                                                </button>
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                @if (Model.Blogs.Count != 0)
+                {
+                    <div class="col-12">
+
+                        <div class="card-header">
+                            <h3 class="card-title">Bloglar</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Şəkli</th>
+                                        <th>Kontenti</th>
+                                        <th>Paylaşilan tarix</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Blog blog in Model.Blogs)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <img src="~/assets/img/@blog.Image" 
+                                                     alt="Blog shekli" class="d-sm-inline-block w-100 h-25"/>
+                                            </td>
+                                            <td>@blog.Description</td>
+                                            <td>@blog.CreatedDate.ToString("dd.MM.yyyy")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="card">
+                        <!-- /.col -->
+                        <div class="col-12">
+                            <div class="text-danger">Bu istifadəçinin heç bir blogu yoxdur</div>
+                        </div>
+                    </div>
+                }
+                <div class="card">
+                    <!-- /.col -->
+                    <div class="col-12">
+                        @if (Model.User.Comments.Count == 0)
+                        {
+                            <span class="text-danger">Bu istifadəçi heç bir rəy bildirməyib</span>
+                        }
+                        else
+                        {
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Rəylər</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="example2" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Blog şəkli</th>
+                                                <th>Kontent</th>
+                                                <th>Rəyin göndərilmə tarixi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (Comment comment in Model.User.Comments)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <img src="~/assets/img/@comment.Blog.Image"
+                                                             style="height:300px;object-fit:cover;"
+                                                             alt="Blog shekli" class="d-sm-inline-block w-100" />
+                                                    </td>
+                                                    <td>@comment.Text</td>
+                                                    <td>@comment.CreatedDate.ToString("dd.MM.yyyy")</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div><!-- /.card -->
+                        }
+                    </div>
+                </div>
+            </div> <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!--Delete Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">İstifadəçini sil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bu istifadəçini silməkdə əminsiniz? İstifadəçi: <span class="text-primary">@Model.User.UserName</span>
+            </div>
+            <input type="hidden" value="@Model.User.Id" id="userId" />
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary deleteCancel" data-bs-dismiss="modal">Ləğv et</button>
+                <button type="button" class="btn btn-primary" id="deleteUser">Sil</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Trigger block Moda-->
+<input type="hidden" class="btn btn-danger" id="blockModalTriggerBtn" data-bs-toggle="modal" data-bs-target="#exampleModalBlock">
+<!--Block modal-->
+<div class="modal fade" id="exampleModalBlock" tabindex="-1" aria-labelledby="exampleModalLabelBlock" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabelBlock">Block User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bu istifadəçini bloklamaqda əminsiniz? istifadəçi: <span class="text-primary" id="userInfoBlock">@Model.User.UserName</span>
+                <input type="hidden" value="@Model.User.Id" id="userIdBlock" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ləğv et</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="blockUser">Blokla</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Unblock modal-->
+<!-- Real Button trigger the unblock modal -->
+<input type="hidden" id="UnBlockModalActivate" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalUnBlock">
+<!--Unblock Modal -->
+<div class="modal fade" id="exampleModalUnBlock" tabindex="-1" aria-labelledby="exampleModalLabelUnBlock" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabelUnBlock">Unblock User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bu istifadəçini aktivləşdirməkdə əminsiniz? İstifadəçi: <span class="text-primary" id="userInfoUnBlock">@Model.User.UserName</span>
+                <input type="hidden" value="@Model.User.Id" id="userIdUnBlock" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ləğv et</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="unBlockUserBtn">Aktivləşdir</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script asp-append-version="true">
+        "use strict";
+        window.onload = () => {
+            // For Deleting user
+            jQuery(document).on("click", "#deleteUser", function (e) {
+                $.ajax({
+                    method: "Post",
+                    url: "/Admin/User/Delete/" + $("#userId").val(),
+                    success: function (res) {
+                        if (res === "Success") {
+                            window.location.replace("/Admin/User");
+                        } else if (res === "Hotel Error") {
+                            document.querySelector(".deleteCancel").click();
+                            $(".userErrorInfoEl").append(`<span class="text-danger error">
+                        First you need to delete the hotel of this user
+                                   </span>`);
+                            setTimeout(function () {
+                                $(".error").detach();
+                            }, 3 * 1000);
+                        } else {
+                            window.location.replace(window.location.href + "NotFound");
+                        }
+                    }
+                });
+            });
+            // For Blocking User
+            let BlockModalBtn = document.querySelector(".BlockModalBtn");
+            if (BlockModalBtn != null) {
+                BlockModalBtn.addEventListener("click", ActivateBlockModalBtn);
+            }
+            jQuery(document).on("click", "#blockUser", function (e) {
+                $.ajax({
+                    method: "Post",
+                    url: "/Admin/User/Block/" + $("#userIdBlock").val(),
+                    success: function (res) {
+                        if (res) {
+                            let el = $(".BlockModalBtn")[0];
+                            $(el).removeClass("BlockModalBtn").addClass("unBlockModalBtn").text("Unblock");
+                            el.removeEventListener("click", ActivateBlockModalBtn);
+                            el.addEventListener("click", ActivateUnBlockModalBtn);
+                        } else {
+                            window.location.replace(window.location.href + "NotFound");
+                        }
+                    }
+                });
+            });
+            // For UnBlocking
+            let unBlockModalBtn = document.querySelector(".unBlockModalBtn");
+            if (unBlockModalBtn != null) {
+                unBlockModalBtn.addEventListener("click", ActivateUnBlockModalBtn);
+            }
+            jQuery(document).on("click", "#unBlockUserBtn", function (e) {
+                $.ajax({
+                    method: "Post",
+                    url: "/Admin/User/UnBlock/" + $("#userIdUnBlock").val(),
+                    success: function (res) {
+                        if (res) {
+                            let el = $(".unBlockModalBtn")[0];
+                            $(el).removeClass("unBlockMobalBtn").addClass("BlockModalBtn").text("Block")
+                            el.removeEventListener("click", ActivateUnBlockModalBtn);
+                            el.addEventListener("click", ActivateBlockModalBtn);
+                        } else {
+                            window.location.replace(window.location.href + "NotFound");
+                        }
+                    }
+                });
+            });
+        }
+        function ActivateBlockModalBtn() {
+            $("#blockModalTriggerBtn").click();
+        }
+        function ActivateUnBlockModalBtn() {
+            $("#UnBlockModalActivate").click();
+        }
+    </script>
+
+}

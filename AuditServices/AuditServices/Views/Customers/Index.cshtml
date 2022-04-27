@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="breadcrumb-about" class="pos-rel">
+    <div class="container">
+        <div class="row flex-column align-items-around">
+            <div class="mt-5 primary-bg page-location d-flex align-items-center">
+                <i class="fs-2 white fas fa-home hover-cc"></i>
+                <p class="fs-2 white hover-cc">Müştərilərimiz</p>
+            </div>
+            <div class="breadcrumb--title fs-2 white fw-400">Ən yaxşı keyfiyyət</div>
+            <div class="breadcrumb--text white mt-5">Müştərilərimiz</div>
+            <div class="breadcrumb--nav d-flex flex-column flex-lg-row">
+                <a asp-controller="About"
+                   class="white hover-cc fw-300 my-4 my-lg-0">Niyə görə biz?</a>
+                <a asp-controller="Customers"
+                   class="white hover-cc fw-300 my-4 my-lg-0">Müştərilərimiz</a>
+                <a asp-controller="Team" class="white hover-cc fw-300 my-4 my-lg-0">Komandamız</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="main-info" class="py-5 margin-sec">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12">
+                <p class="fw-600 fs-3 main-title">
+                    Going beyond is what makes FA Consulting different. And what
+                    clients value most.
+                </p>
+                <p class="fw-600 fs-3 main-title my-5">
+                    We make business personal.
+                </p>
+                <p class="text fs-2 my-5">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque,
+                    a maxime ipsa cupiditate voluptatum mollitia labore dignissimos
+                    quibusdam sint dolor voluptatem excepturi corporis. Expedita
+                    delectus non qui vitae velit omnis corrupti ducimus, quas
+                    consequatur sequi blanditiis autem deserunt harum architecto
+                    iusto ad odit recusandae rerum sed natus illum! Quidem vitae rem
+                    praesentium ipsam ratione harum!
+                </p>
+
+                <p class="fw-600 fs-3 main-title mt-5">Our Clients</p>
+                <div class="row justify-content-center">
+                    <div class="clients-wrapper my-5">
+                        <div class="client-image">
+                            <img src="~/assets/img/logo-1.png" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/logo-2.png" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/logo-3.png" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/logo-4.png" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/logo-5.png" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/hp.svg.png" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/Dell_Logo.svg.png"
+                                 alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/Microsoft_Azure.svg.png"
+                                 alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/Nickelodeon-Logo.png"
+                                 alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/OpenAI_Logo.svg.png"
+                                 alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/kibrit.png" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/Qarabağ_FK_logo.svg.png"
+                                 alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/bmw.jpg" alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/Land_Rover_logo.png"
+                                 alt="Client Logo" />
+                        </div>
+                        <div class="client-image">
+                            <img src="~/assets/img/Mercedes-Logo.svg.png"
+                                 alt="Client Logo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="personel">
+    <div class="contanier-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-4 px-0">
+                <div class="personel-card"
+                     style="background-image: url('./assets/img/client-1.jpg')">
+                    <div class="personel-card-title white">People</div>
+                    <div class="personel-card-info white mt-5">
+                        Why there’s no place like ours
+                    </div>
+                    <div class="personel-card-sub white my-3">
+                        A reminder that our people, culture and challenges are hard to
+                        beat.
+                    </div>
+                    <a href="#">
+                        <button class="default-btn btn-w border-w">
+                            Read Lorella's story
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 px-0">
+                <div class="personel-card"
+                     style="background-image: url('./assets/img/client-2.jpg')">
+                    <div class="personel-card-title white">OUR CLIENTS</div>
+                    <div class="personel-card-info white mt-5">
+                        Evolving alongside our clients
+                    </div>
+                    <div class="personel-card-sub white my-3">
+                        A long and productive relationship
+                    </div>
+                    <a href="#">
+                        <button class="default-btn btn-w border-w">
+                            Read about the client experience
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 px-0">
+                <div class="personel-card"
+                     style="background-image: url('./assets/img/client-3.jpg')">
+                    <div class="personel-card-title white">COMMUNITIES</div>
+                    <div class="personel-card-info white mt-5">
+                        Inspiring the next generation
+                    </div>
+                    <div class="personel-card-sub white my-3">
+                        Showing students that anything is possible
+                    </div>
+                    <a href="#">
+                        <button class="default-btn btn-w border-w">
+                            Helping our communities
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

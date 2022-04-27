@@ -1,0 +1,50 @@
+﻿@model BlogUpdateVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="edit-blog customUpdateForm mb-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <form class="form" asp-action="Update" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="BlogId" value="@Model?.BlogId" />
+                    <input type="hidden" asp-for="CurrentImage" value="@Model?.CurrentImage" />
+                    <div class="form-group">
+                        <div class="text-center">
+                            <p class="h1">Cari şəkil</p>
+                            <div class="img-wrapper d-flex my-4 justify-content-center">
+                                <img src="~/assets/img/@Model.CurrentImage"
+                                     alt="Cari şəkil"
+                                     class="d-block w-100" />
+                            </div>
+                        </div>
+                        <label id="pp-label" for="profile-picture">
+                            Şəkli yenilə <i class="fa-solid fa-images"></i>
+                        </label>
+                        <span class="text-danger h2" asp-validation-for="NewImage"></span>
+                        <input type="file" accept="image/*"
+                               title="Şəkil"
+                               id="profile-picture"
+                               class="form-control"
+                               asp-for="NewImage" />
+                    </div>
+                    <div class="form-group">
+                        <textarea asp-for="Description"
+                                  cols="30"
+                                  rows="10"
+                                  class="form-control"
+                                  value="@Model.Description"
+                                  placeholder="Fikirləriniz...">@Model.Description</textarea>
+                        <span class="text-danger h2" asp-validation-for="Description"></span>
+                    </div>
+                    <div class="form-btns d-flex justify-content-around">
+                        <button type="submit" class="btn btn-primary w-25">Yenilə</button>
+                        <button asp-controller="Account" asp-action="Index" class="btn btn-danger w-25 ml-3">Ləğv et</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
