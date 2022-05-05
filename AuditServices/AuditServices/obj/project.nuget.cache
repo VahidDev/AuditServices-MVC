@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sAjiXdOlNEc4uMpN7bhhYisOsPFwkaZOTaJjwl0hEBJLc94fJ6PfqJnFl5SCmmYNYVa/PqhBVSVgFzLpbu7zeA==",
+  "dgSpecHash": "gPrZ3vaO8uJxUCbMsWywnTddeNgNtxi+Y26Nl1StMW4KwO2azgabMqovXdTOtuwT+IWYCbrUEHcIK1tDMEfphw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\OneDrive\\Рабочий стол\\AuditServices\\AuditServices\\AuditServices\\AuditServices.csproj",
+  "projectFilePath": "C:\\Users\\User\\OneDrive\\Desktop\\AuditServices\\AuditServices\\AuditServices\\AuditServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
