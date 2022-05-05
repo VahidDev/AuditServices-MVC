@@ -339,7 +339,7 @@
                         if (res) {
                             let el = $(".userToBlock")[0]
                             $(el).removeClass("userToBlock").removeClass("BlockModalBtn")
-                                .addClass("unBlockMobalBtn").text("Unblock");
+                                .addClass("unBlockMobalBtn").text("Aktivləşdir");
                             el.removeEventListener('click', GetUserIdBlock);
                             el.addEventListener("click", GetUserIdUnBlock);
                         } else {
@@ -361,7 +361,7 @@
                         if (res) {
                             let el = $(".userToUnBlock")[0];
                             $(el).removeClass("userToUnBlock").removeClass("unBlockMobalBtn")
-                                .addClass("BlockModalBtn").text("Block")
+                                .addClass("BlockModalBtn").text("Blokla")
                             el.removeEventListener('click', GetUserIdUnBlock);
                             el.addEventListener("click", GetUserIdBlock);
                         } else {

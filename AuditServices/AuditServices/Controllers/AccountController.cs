@@ -63,16 +63,17 @@ namespace AuditServices.Controllers
                 ModelState.AddModelError("AccountLoginViewModel.UserName", "Bele bir istifadechi yoxdur");
                 return View();
             }
+            if (user.IsBlocked)
+            {
+                ModelState.AddModelError("AccountLoginViewModel.Password",
+                    "Bu istifadeci bloklanibdir");
+                return View();
+            }
             Microsoft.AspNetCore.Identity.SignInResult signInResult =await  _signInManager
                 .CheckPasswordSignInAsync(user, accModel.AccountLoginViewModel.Password, false);
             if (!signInResult.Succeeded)
             {
                 ModelState.AddModelError("AccountLoginViewModel.Password", "Şifrə yanlışdır");
-                return View();
-            }
-            if (user.IsBlocked)
-            {
-                ModelState.AddModelError("", "Bu istifadeci bloklanibdir");
                 return View();
             }
             await _signInManager.SignInAsync(user, false);
